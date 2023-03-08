@@ -23,7 +23,7 @@ class ML:
 
     def load_weights(self, model):
         return self.avaliable_models.get(model, None)
-
+#def load balancer
     def load_balancer(self, new_model):
         least_requested_model = min(self.request_count, key=self.request_count.get)
         del self.loaded_models[least_requested_model]
@@ -32,7 +32,7 @@ class ML:
 
     def increment_request_count(self, model):
         self.request_count[model] += 1
-
+#end of load balancer        
 
 app = Flask(__name__)
 ml = ML()
